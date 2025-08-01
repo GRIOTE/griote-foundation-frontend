@@ -1,73 +1,109 @@
-# Welcome to your Lovable project
+# Griote Foundation (Frontend)
 
-## Project info
+Griote Foundation est une plateforme panafricaine valorisant les travaux de recherche (académiques ou personnels, tous niveaux) et facilitant l’accès aux bourses pour les niveaux Master et Doctorat. Ce dépôt contient le frontend du site web, construit avec **React**, **TypeScript**, **Vite**, et **Tailwind CSS**, avec une esthétique panafricaine (bleu profond #142393, jaune doré #FFDE59, motifs bogolan/kente).
 
-**URL**: https://lovable.dev/projects/0feb9e8c-9bc7-448e-bb3d-2cdb5e9a985a
+## Fonctionnalités
 
-## How can I edit this code?
+- **Accueil** : Barre de recherche centrale (inspirée de Pixabay), projets récents, mission de la fondation.
+- **Recherche de projets** : Exploration des projets publics avec filtres (mots-clés, thématiques, niveau, date).
+- **Dépôt de projets** : Soumission de travaux (PDF/ZIP, max 50 Mo) avec titre, description, tags, visibilité.
+- **Mes Dépôts** : Gestion des projets (modifier, supprimer, historique).
+- **Bourses** : Candidature et suivi des bourses M2/Doctorat (formulaire, documents, statut).
+- **Mon Compte** : Gestion du profil (nom, statut, parcours).
+- **À propos** : Mission et vision panafricaine.
+- **Connexion/Inscription** : Authentification sécurisée.
+- **Responsive** : Adapté à mobile, tablette, desktop.
+- **Accessibilité** : Contrastes WCAG, navigation clavier.
 
-There are several ways of editing your application.
+## Structure
 
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/0feb9e8c-9bc7-448e-bb3d-2cdb5e9a985a) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+```
+griote-foundation/
+├── public/
+│   ├── favicon.ico
+│   ├── placeholder.svg
+│   └── robots.txt
+├── src/
+│   ├── assets/
+│   │   ├── griote.svg
+│   │   ├── bogolan-pattern.png
+│   │   └── kente-pattern.png
+│   ├── components/
+│   │   ├── HeroSection.tsx
+│   │   ├── Layout/
+│   │   │   ├── Footer.tsx
+│   │   │   └── Header.tsx
+│   │   ├── ProjectCard.tsx
+│   │   ├── ui/
+│   │   └── WhyGrioteSection.tsx
+│   ├── pages/
+│   │   ├── APropos.tsx
+│   │   ├── Connexion.tsx
+│   │   ├── Depot.tsx
+│   │   ├── Bourses.tsx
+│   │   ├── Index.tsx
+│   │   ├── Inscription.tsx
+│   │   ├── NotFound.tsx
+│   │   └── Recherche.tsx
+│   ├── styles/
+│   │   └── griote.css
+│   ├── App.tsx
+│   ├── index.css
+│   ├── main.tsx
+│   └── vite-env.d.ts
+├── package.json
+├── pnpm-lock.yaml
+├── tailwind.config.ts
+├── tsconfig.json
+└── README.md
 ```
 
-**Edit a file directly in GitHub**
+## Installation
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+1. Clonez le dépôt :
+   ```bash
+   git clone https://github.com/brandoniscoding/griote-foundation.git
+   cd griote-foundation
+   ```
 
-**Use GitHub Codespaces**
+2. Installez les dépendances :
+   ```bash
+   pnpm install
+   ```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+3. Configurez l’environnement :
+   - Créez un fichier `.env` :
+     ```env
+     VITE_API_URL=https://griote-backend.example.com/api
+     ```
 
-## What technologies are used for this project?
+4. Lancez le frontend :
+   ```bash
+   pnpm dev
+   ```
+   Accédez à `http://localhost:5173`.
 
-This project is built with:
+## Contribution
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+1. Forkez le dépôt.
+2. Créez une branche : `git checkout -b feature/nouvelle-fonctionnalite`.
+3. Commitez vos changements : `git commit -m "Ajout de nouvelle-fonctionnalite"`.
+4. Poussez : `git push origin feature/nouvelle-fonctionnalite`.
+5. Ouvrez une pull request sur GitHub.
 
-## How can I deploy this project?
+## Technologies
 
-Simply open [Lovable](https://lovable.dev/projects/0feb9e8c-9bc7-448e-bb3d-2cdb5e9a985a) and click on Share -> Publish.
+- **React** : v18
+- **TypeScript** : Typage statique
+- **Vite** : Build rapide
+- **Tailwind CSS** : Styles utilitaires
+- **Lucide React** : Icônes
+- **React Router** : Navigation
 
-## Can I connect a custom domain to my Lovable project?
+## Backend
 
-Yes, you can!
+Pour le backend, consultez le dépôt séparé : [griote-foundation-backend](https://github.com/brandoniscoding/griote-foundation-backend).
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## Contact
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+Ouvrez une issue sur GitHub pour toute question ou suggestion.
