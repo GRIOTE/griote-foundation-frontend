@@ -1,4 +1,4 @@
-
+import { useState, useEffect } from 'react';
 import { Shield, BookOpen, Star, GraduationCap } from 'lucide-react';
 
 const features = [
@@ -25,14 +25,29 @@ const features = [
 ];
 
 const WhyGrioteSection = () => {
+  const [fadeIn, setFadeIn] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setFadeIn(true), 100); 
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <section className="bg-griote-blue bg-bogolan py-16">
+    <section className="bg-[#003399] py-16">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-griote-gold mb-4">
+          <h2
+            className={`text-3xl md:text-4xl font-bold text-[#FFFFFF] mb-4 transition-opacity duration-700 ${
+              fadeIn ? 'opacity-100' : 'opacity-0'
+            }`}
+          >
             Pourquoi choisir Griote ?
           </h2>
-          <p className="text-xl text-griote-gold/80 max-w-2xl mx-auto">
+          <p
+            className={`text-xl text-[#FFFFFF] max-w-2xl mx-auto transition-opacity duration-700 delay-100 ${
+              fadeIn ? 'opacity-100' : 'opacity-0'
+            }`}
+          >
             Une plateforme pensée par et pour la communauté académique africaine
           </p>
         </div>
@@ -43,18 +58,20 @@ const WhyGrioteSection = () => {
             return (
               <div
                 key={index}
-                className="text-center animate-fade-in griote-hover"
-                style={{ animationDelay: `${index * 0.2}s` }}
+                className={`text-center transition-all duration-500 transform rounded-2xl p-6 bg-[#FFFFFF] hover:bg-[#F2B600] hover:text-[#003399] cursor-pointer ${
+                  fadeIn ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+                }`}
+                style={{ transitionDelay: `${index * 200}ms` }}
               >
-                <div className="w-20 h-20 bg-griote-gold rounded-2xl flex items-center justify-center mx-auto mb-6">
-                  <Icon className="w-10 h-10 text-griote-blue" />
+                <div className="w-20 h-20 bg-[#003399] rounded-2xl flex items-center justify-center mx-auto mb-6">
+                  <Icon className="w-10 h-10 text-[#FFFFFF]" />
                 </div>
                 
-                <h3 className="text-xl font-semibold text-griote-gold mb-3">
+                <h3 className="text-xl font-semibold text-[#003399] mb-3">
                   {feature.title}
                 </h3>
                 
-                <p className="text-griote-gold/80 leading-relaxed">
+                <p className="text-[#6B7280] leading-relaxed">
                   {feature.description}
                 </p>
               </div>
@@ -64,10 +81,10 @@ const WhyGrioteSection = () => {
 
         {/* Citation inspirante */}
         <div className="mt-16 text-center">
-          <blockquote className="text-2xl md:text-3xl font-light text-griote-gold/90 italic mb-4">
+          <blockquote className="text-2xl md:text-3xl font-light text-[#F2B600]/90 italic mb-4 transition-opacity duration-700">
             "Le griot ne se contente pas de raconter l'histoire, il la préserve et la transmet."
           </blockquote>
-          <cite className="text-griote-gold/70">— Sagesse africaine traditionnelle</cite>
+          <cite className="text-[#6B7280]">— Sagesse africaine traditionnelle</cite>
         </div>
       </div>
     </section>

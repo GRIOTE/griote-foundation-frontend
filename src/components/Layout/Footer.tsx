@@ -1,44 +1,50 @@
-
 import { Link } from 'react-router-dom';
+import GrioteLogo from '@/assets/griote.svg';
 
 const Footer = () => {
   return (
-    <footer className="bg-griote-blue bg-kente border-t-4 border-griote-gold">
+    <footer className="bg-[#003399] border-t-4 border-[#F2B600]">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Logo et description */}
-          <div className="col-span-1 md:col-span-2">
-            <div className="flex items-center space-x-3 mb-4">
-              <div className="w-12 h-12 bg-griote-gold rounded-lg flex items-center justify-center">
-                <span className="text-xl font-bold text-griote-blue">G</span>
+          <div className="flex flex-col space-y-4">
+            <Link to="/" className="flex items-center space-x-3 transition-transform hover:scale-105">
+              <img src={GrioteLogo} alt="Griote Logo" className="w-10 h-10" />
+              <div className="flex flex-col">
+                <span className="text-2xl font-bold text-[#FFFFFF] leading-none">Griote</span>
+                <span className="text-[10px] font-medium text-white/80 leading-tight">foundation</span>
               </div>
-              <div>
-                <h3 className="text-xl font-bold text-griote-gold">Fondation Griote</h3>
-                <p className="text-griote-gold/80 text-sm">Valorisant les savoirs africains</p>
-              </div>
-            </div>
-            <p className="text-griote-gold/80 text-sm leading-relaxed">
-              Plateforme panafricaine dédiée à la valorisation des travaux académiques 
+            </Link>
+            <p className="text-white/80 text-sm leading-relaxed">
+              Plateforme panafricaine dédiée à la valorisation des dépôts académiques 
               et à l'accès aux bourses d'études supérieures.
             </p>
           </div>
 
-          {/* Liens rapides */}
+          {/* Liens essentiels */}
           <div>
-            <h4 className="text-griote-gold font-semibold mb-4">Liens rapides</h4>
+            <h4 className="text-[#F2B600] font-semibold mb-4">Liens rapides</h4>
             <ul className="space-y-2">
               <li>
                 <Link 
                   to="/recherche" 
-                  className="text-griote-gold/80 hover:text-griote-white text-sm transition-colors duration-300"
+                  className="text-white/80 hover:text-[#F2B600] text-sm transition-colors duration-300"
                 >
-                  Explorer les projets
+                  Explorer les dépôts
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  to="/recherche" 
+                  className="text-white/80 hover:text-[#F2B600] text-sm transition-colors duration-300"
+                >
+                  Nos annonces
                 </Link>
               </li>
               <li>
                 <Link 
                   to="/bourses" 
-                  className="text-griote-gold/80 hover:text-griote-white text-sm transition-colors duration-300"
+                  className="text-white/80 hover:text-[#F2B600] text-sm transition-colors duration-300"
                 >
                   Bourses disponibles
                 </Link>
@@ -46,58 +52,23 @@ const Footer = () => {
               <li>
                 <Link 
                   to="/a-propos" 
-                  className="text-griote-gold/80 hover:text-griote-white text-sm transition-colors duration-300"
+                  className="text-white/80 hover:text-[#F2B600] text-sm transition-colors duration-300"
                 >
-                  À propos de nous
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Support */}
-          <div>
-            <h4 className="text-griote-gold font-semibold mb-4">Support</h4>
-            <ul className="space-y-2">
-              <li>
-                <Link 
-                  to="/contact" 
-                  className="text-griote-gold/80 hover:text-griote-white text-sm transition-colors duration-300"
-                >
-                  Contact
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  to="/conditions" 
-                  className="text-griote-gold/80 hover:text-griote-white text-sm transition-colors duration-300"
-                >
-                  Conditions d'utilisation
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  to="/confidentialite" 
-                  className="text-griote-gold/80 hover:text-griote-white text-sm transition-colors duration-300"
-                >
-                  Politique de confidentialité
+                  À propos
                 </Link>
               </li>
             </ul>
           </div>
         </div>
 
-        {/* Séparateur avec motif */}
-        <div className="border-t border-griote-gold/30 mt-8 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-griote-gold/60 text-sm">
-              © 2024 Fondation Griote. Tous droits réservés.
-            </p>
-            <div className="flex space-x-6 mt-4 md:mt-0">
-              <span className="text-griote-gold/60 text-sm">
-                Fait avec ❤️ pour l'Afrique
-              </span>
-            </div>
-          </div>
+        {/* Bas de page */}
+        <div className="border-t border-[#F2B600]/30 mt-8 pt-8 text-center">
+          <p className="text-white/60 text-sm">
+            © 2025 Fondation Griote. Tous droits réservés.
+          </p>
+          <p className="text-white/60 text-sm mt-2">
+            Fait avec ❤️ pour l'Afrique
+          </p>
         </div>
       </div>
     </footer>

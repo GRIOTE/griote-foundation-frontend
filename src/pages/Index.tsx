@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import Header from '@/components/Layout/Header';
 import Footer from '@/components/Layout/Footer';
@@ -9,122 +8,92 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-// Mock data pour les projets récents
-const recentProjects = [
+// Mock data pour les dépôts récents avec types utilisateur et catégorie
+const recentDepots = [
   {
     id: 1,
-    title: "Intelligence Artificielle et Agriculture Durable au Sénégal",
+    title: "Intelligence Artificielle et Agriculture Durable",
     author: "Aminata Diallo",
+    userType: "STUDENT",
+    category: "RESEARCH_PROJECT",
     date: "15 nov. 2024",
     tags: ["IA", "Agriculture", "Durabilité"],
     isPublic: true,
-    description: "Étude sur l'application de l'IA pour optimiser les rendements agricoles tout en préservant l'environnement."
+    description: "Optimisation des rendements agricoles avec l'IA tout en préservant l'environnement."
   },
   {
     id: 2,
-    title: "Systèmes de Santé Communautaire en Afrique de l'Ouest",
+    title: "Systèmes de Santé Communautaire",
     author: "Dr. Kwame Asante",
+    userType: "TEACHER",
+    category: "PEER_REVIEWED_ARTICLE",
     date: "12 nov. 2024",
     tags: ["Santé", "Communauté", "Politique"],
     isPublic: true,
-    description: "Analyse comparative des systèmes de santé communautaire dans cinq pays d'Afrique de l'Ouest."
+    description: "Comparatif des systèmes de santé communautaire en Afrique de l'Ouest."
   },
   {
     id: 3,
     title: "Éducation Numérique et Langues Africaines",
     author: "Fatima El-Rashid",
+    userType: "INDEPENDENT",
+    category: "COURSE_WORK",
     date: "10 nov. 2024",
     tags: ["Éducation", "Numérique", "Langues"],
     isPublic: true,
-    description: "Développement d'outils éducatifs numériques intégrant les langues africaines locales."
-  },
-  {
-    id: 4,
-    title: "Énergies Renouvelables et Développement Rural",
-    author: "Jean-Claude Mbeki",
-    date: "8 nov. 2024",
-    tags: ["Énergie", "Rural", "Innovation"],
-    isPublic: true,
-    description: "Implémentation de solutions d'énergie solaire dans les communautés rurales africaines."
-  },
-  {
-    id: 5,
-    title: "Blockchain et Inclusion Financière",
-    author: "Aisha Mohamed",
-    date: "5 nov. 2024",
-    tags: ["Blockchain", "Finance", "Inclusion"],
-    isPublic: true,
-    description: "Comment la technologie blockchain peut révolutionner l'inclusion financière en Afrique."
-  },
-  {
-    id: 6,
-    title: "Art Contemporain et Identité Culturelle Africaine",
-    author: "Kofi Antwi",
-    date: "3 nov. 2024",
-    tags: ["Art", "Culture", "Identité"],
-    isPublic: true,
-    description: "Exploration de l'art contemporain africain comme vecteur d'affirmation culturelle."
+    description: "Création d'outils éducatifs numériques intégrant les langues locales."
   }
 ];
 
 const Index = () => {
-  const [isAuthenticated] = useState(false); // À connecter avec le système d'auth
+  const [isAuthenticated] = useState(false);
 
-  const handleLogout = () => {
-    // Logique de déconnexion
-    console.log('Déconnexion');
-  };
-
-  const handleProjectView = (projectId: number) => {
-    console.log('Voir projet:', projectId);
-  };
-
-  const handleProjectDownload = (projectId: number) => {
-    console.log('Télécharger projet:', projectId);
-  };
+  const handleLogout = () => console.log('Déconnexion');
+  const handleDepotView = (depotId: number) => console.log('Voir dépôt:', depotId);
+  const handleDepotDownload = (depotId: number) => console.log('Télécharger dépôt:', depotId);
 
   return (
-    <div className="min-h-screen bg-griote-white">
+    <div className="min-h-screen bg-[#FFFFFF]">
       <Header isAuthenticated={isAuthenticated} onLogout={handleLogout} />
       
       <main>
         {/* Section Hero */}
         <HeroSection isAuthenticated={isAuthenticated} />
 
-        {/* Section Projets Récents */}
-        <section className="py-16 bg-griote-white">
+        {/* Section Dépôts Récents */}
+        <section className="py-16 bg-[#FFFFFF]">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-griote-blue mb-4">
-                Projets Récents
+              <h2 className="text-3xl md:text-4xl font-bold text-[#003399] mb-4">
+                Dépôts Récents
               </h2>
-              <p className="text-xl text-griote-anthracite/80 max-w-2xl mx-auto">
-                Découvrez les derniers travaux partagés par notre communauté académique
+              <p className="text-xl text-[#6B7280] max-w-2xl mx-auto">
+                Découvrez les derniers dépôts partagés par notre communauté académique
               </p>
             </div>
 
-            {/* Grille de projets */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-              {recentProjects.map((project) => (
+              {recentDepots.map((depot) => (
                 <ProjectCard
-                  key={project.id}
-                  title={project.title}
-                  author={project.author}
-                  date={project.date}
-                  tags={project.tags}
-                  isPublic={project.isPublic}
-                  description={project.description}
-                  onView={() => handleProjectView(project.id)}
-                  onDownload={() => handleProjectDownload(project.id)}
+                  key={depot.id}
+                  title={depot.title}
+                  author={depot.author}
+                  userType={depot.userType as any}
+                  category={depot.category}
+                  date={depot.date}
+                  tags={depot.tags}
+                  isPublic={depot.isPublic}
+                  description={depot.description}
+                  onView={() => handleDepotView(depot.id)}
+                  onDownload={() => handleDepotDownload(depot.id)}
                 />
               ))}
             </div>
 
-            {/* Bouton voir plus */}
             <div className="text-center">
               <Link to="/recherche">
-                <Button className="griote-button text-lg px-8 py-4">
-                  Voir tous les projets
+                <Button className="bg-[#003399] text-[#FFFFFF] hover:bg-[#F2B600] hover:text-[#003399] text-lg px-8 py-4 transition-colors duration-200">
+                  Voir tous les dépôts
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
               </Link>
@@ -136,23 +105,23 @@ const Index = () => {
         <WhyGrioteSection />
 
         {/* Section Call-to-Action */}
-        <section className="py-16 bg-griote-white">
+        <section className="py-16 bg-[#FFFFFF]">
           <div className="container mx-auto px-4">
-            <div className="bg-gradient-to-r from-griote-blue to-griote-blue/90 rounded-3xl p-8 md:p-12 text-center bg-kente">
-              <h2 className="text-3xl md:text-4xl font-bold text-griote-gold mb-6">
+            <div className="bg-[#003399] rounded-3xl p-8 md:p-12 text-center">
+              <h2 className="text-3xl md:text-4xl font-bold text-[#FFFFFF] mb-6">
                 Prêt à rejoindre la communauté ?
               </h2>
-              <p className="text-xl text-griote-gold/80 mb-8 max-w-2xl mx-auto">
+              <p className="text-xl text-[#FFFFFF]/80 mb-8 max-w-2xl mx-auto">
                 Partagez vos recherches, découvrez de nouveaux savoirs et postulez aux meilleures bourses académiques.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link to="/inscription">
-                  <Button className="griote-button text-lg px-8 py-4">
-                    Créer un compte gratuit
+                  <Button className="bg-[#FFFFFF] text-[#003399] hover:bg-[#F2B600] hover:text-[#003399] text-lg px-8 py-4 transition-colors duration-200">
+                    Créer un compte maintenant
                   </Button>
                 </Link>
                 <Link to="/a-propos">
-                  <Button variant="outline" className="griote-button-outline text-lg px-8 py-4">
+                  <Button variant="outline" className="border-[#FFFFFF] text-[#003399] hover:bg-[#F2B600] hover:text-[#003399] text-lg px-8 py-4 transition-colors duration-200">
                     En savoir plus
                   </Button>
                 </Link>
