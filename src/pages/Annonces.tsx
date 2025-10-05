@@ -1,69 +1,11 @@
 import { useState } from 'react';
 import Header from '@/components/Layout/Header';
 import Footer from '@/components/Layout/Footer';
-import HeroSection from '@/components/HeroSection';
-import WhyGrioteSection from '@/components/WhyGrioteSection';
-import GrioteAISection from '@/components/GrioteAISection';
 import AnnouncementsSection from '@/components/AnnouncementsSection';
-import { Button } from '@/components/ui/button';
-import { ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
-import RecentDepositsSection from '@/components/RecentDepositSection';
-import CallToActionSection from '@/components/CallToActionSection';
 import { Announcement } from '@/components/AnnouncementCard';
 
-// Interface pour les dépôts récents
-interface Depot {
-  id: string;
-  title: string;
-  author: string;
-  userType: 'STUDENT' | 'TEACHER' | 'INDEPENDENT';
-  category: string;
-  date: string;
-  tags: string[];
-  isPublic: boolean;
-  description: string;
-}
-
-// Mock data pour les dépôts récents
-const recentDepots: Depot[] = [
-  {
-    id: '1',
-    title: 'Intelligence Artificielle et Agriculture Durable',
-    author: 'Aminata Diallo',
-    userType: 'STUDENT',
-    category: 'RESEARCH_PROJECT',
-    date: '15 nov. 2024',
-    tags: ['IA', 'Agriculture', 'Durabilité'],
-    isPublic: true,
-    description: "Optimisation des rendements agricoles avec l'IA tout en préservant l'environnement.",
-  },
-  {
-    id: '2',
-    title: 'Systèmes de Santé Communautaire',
-    author: 'Dr. Kwame Asante',
-    userType: 'TEACHER',
-    category: 'PEER_REVIEWED_ARTICLE',
-    date: '12 nov. 2024',
-    tags: ['Santé', 'Communauté', 'Politique'],
-    isPublic: true,
-    description: 'Comparatif des systèmes de santé communautaire en Afrique de l’Ouest.',
-  },
-  {
-    id: '3',
-    title: 'Éducation Numérique et Langues Africaines',
-    author: 'Fatima El-Rashid',
-    userType: 'INDEPENDENT',
-    category: 'COURSE_WORK',
-    date: '10 nov. 2024',
-    tags: ['Éducation', 'Numérique', 'Langues'],
-    isPublic: true,
-    description: 'Création d’outils éducatifs numériques intégrant les langues locales.',
-  },
-];
-
-// Mock data pour les annonces
-const sampleAnnouncements: Announcement[] = [
+// Extended mock data pour la page complète
+const allAnnouncements: Announcement[] = [
   {
     id: '1',
     title: 'Bourse d\'Excellence Africaine 2024 - Master et Doctorat',
@@ -156,48 +98,105 @@ const sampleAnnouncements: Announcement[] = [
     publishedAt: '2024-10-10',
     internalPath: '/programs/exchange',
     tags: ['Échange', 'Université', 'Mobilité', 'Partenariat']
+  },
+  {
+    id: '7',
+    title: 'Symposium sur la Médecine Traditionnelle Africaine',
+    description: 'Rencontre internationale pour valoriser et moderniser les pratiques médicales traditionnelles africaines.',
+    type: 'CONFERENCE',
+    priority: 'MEDIUM',
+    organization: 'Organisation Mondiale de la Santé - Région Afrique',
+    location: 'Addis-Abeba, Éthiopie',
+    deadline: '2024-11-15',
+    publishedAt: '2024-10-05',
+    externalUrl: 'https://example.com/symposium-medecine',
+    media: {
+      type: 'IMAGE',
+      url: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&h=200&fit=crop'
+    },
+    tags: ['Médecine', 'Tradition', 'Santé', 'Recherche']
+  },
+  {
+    id: '8',
+    title: 'Hackathon Climate Tech Africa 2024',
+    description: 'Développez des solutions technologiques innovantes pour lutter contre le changement climatique en Afrique.',
+    type: 'EVENT',
+    priority: 'HIGH',
+    organization: 'Climate Tech Africa',
+    location: 'Nairobi, Kenya',
+    deadline: '2024-11-28',
+    publishedAt: '2024-10-01',
+    internalPath: '/events/hackathon-climate',
+    media: {
+      type: 'VIDEO',
+      url: 'https://example.com/video/hackathon.mp4',
+      thumbnail: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=400&h=200&fit=crop'
+    },
+    tags: ['Hackathon', 'Climat', 'Technologie', 'Innovation']
+  },
+  {
+    id: '9',
+    title: 'Bourse de Recherche en Agriculture Durable',
+    description: 'Financement pour des projets de recherche sur l\'agriculture durable et la sécurité alimentaire en Afrique.',
+    type: 'SCHOLARSHIP',
+    priority: 'MEDIUM',
+    organization: 'Institut International d\'Agriculture Tropicale',
+    location: 'Ibadan, Nigeria',
+    deadline: '2024-12-20',
+    publishedAt: '2024-09-28',
+    externalUrl: 'https://example.com/bourse-agriculture',
+    tags: ['Agriculture', 'Recherche', 'Durabilité', 'Alimentation']
+  },
+  {
+    id: '10',
+    title: 'Formation en Entrepreneuriat Social',
+    description: 'Programme de formation pour développer des entreprises à impact social positif sur le continent africain.',
+    type: 'WORKSHOP',
+    priority: 'LOW',
+    organization: 'African Social Entrepreneurs Network',
+    location: 'Casablanca, Maroc',
+    deadline: '2024-12-05',
+    publishedAt: '2024-09-25',
+    internalPath: '/workshops/social-entrepreneurship',
+    media: {
+      type: 'IMAGE',
+      url: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=200&fit=crop'
+    },
+    tags: ['Entrepreneuriat', 'Social', 'Formation', 'Impact']
   }
 ];
 
-const Index = () => {
+const Annonces = () => {
   const [isAuthenticated] = useState(false);
 
   const handleLogout = () => console.log('Déconnexion');
-  const handleDepotView = (depotId: string) => console.log('Voir dépôt:', depotId);
-  const handleDepotDownload = (depotId: string) => console.log('Télécharger dépôt:', depotId);
 
   return (
     <div className="min-h-screen bg-griote-white">
       <Header isAuthenticated={isAuthenticated} onLogout={handleLogout} />
 
       <main>
-        {/* Section Hero */}
-        <HeroSection isAuthenticated={isAuthenticated} />
+        {/* Page Header */}
+        <section className="py-12 bg-gradient-to-r from-griote-blue to-griote-blue-dark">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center">
+              <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">
+                Toutes les Annonces
+              </h1>
+              <p className="text-xl text-white/90 max-w-3xl mx-auto">
+                Découvrez toutes les opportunités, bourses, événements et formations 
+                disponibles pour la communauté académique africaine
+              </p>
+            </div>
+          </div>
+        </section>
 
-        {/* Section Annonces Récentes */}
+        {/* Announcements with Filters */}
         <AnnouncementsSection 
-          announcements={sampleAnnouncements.slice(0, 3)}
-          maxDisplay={3}
-          showFilters={false}
-          title="Annonces Récentes"
-          subtitle="Découvrez les dernières opportunités pour la communauté académique africaine"
+          announcements={allAnnouncements}
+          maxDisplay={50}
+          showFilters={true}
         />
-
-        {/* Section Dépôts Récents */}
-        <RecentDepositsSection
-          recentDepots={recentDepots}
-          handleDepotView={handleDepotView}
-          handleDepotDownload={handleDepotDownload}
-        />
-
-        {/* Section Pourquoi Griote */}
-        <WhyGrioteSection />
-
-        {/* Section Griote AI */}
-        <GrioteAISection />
-
-        {/* Section Call-to-Action */}
-        <CallToActionSection />
       </main>
 
       <Footer />
@@ -205,4 +204,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default Annonces;

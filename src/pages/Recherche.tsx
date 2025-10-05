@@ -172,7 +172,7 @@ const Recherche = () => {
             <h1 className="text-3xl md:text-4xl font-bold text-griote-blue mb-4">
               Recherche de Projets
             </h1>
-            <p className="text-xl text-griote-anthracite/80">
+            <p className="text-xl text-griote-gray-800/80">
               Découvrez les travaux académiques de notre communauté panafricaine
             </p>
           </div>
@@ -185,9 +185,9 @@ const Recherche = () => {
                 placeholder="Rechercher par titre, description ou tags..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-12 pr-4 py-4 bg-griote-white border-2 border-griote-gold rounded-lg text-lg focus:outline-none focus:border-griote-gold text-griote-anthracite"
+                className="w-full pl-12 pr-4 py-4 bg-griote-white border-2 border-griote-accent rounded-lg text-lg focus:outline-none focus:border-griote-accent text-griote-gray-800"
               />
-              <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 w-6 h-6 text-griote-gold" />
+              <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 w-6 h-6 text-griote-accent" />
             </form>
           </div>
 
@@ -205,7 +205,7 @@ const Recherche = () => {
 
                   <div className="hidden lg:block">
                     <h3 className="griote-subtitle font-semibold mb-6 flex items-center">
-                      <Filter className="w-5 h-5 mr-2 text-griote-gold" />
+                      <Filter className="w-5 h-5 mr-2 text-griote-accent" />
                       Filtres
                     </h3>
                   </div>
@@ -218,7 +218,7 @@ const Recherche = () => {
                         <SelectTrigger className="w-full">
                           <SelectValue />
                         </SelectTrigger>
-                        <SelectContent className="bg-griote-white border border-griote-gold/20">
+                        <SelectContent className="bg-griote-white border border-griote-accent/20">
                           {thematiqueOptions.map(option => (
                             <SelectItem key={option.value} value={option.value}>
                               {option.label}
@@ -235,7 +235,7 @@ const Recherche = () => {
                         <SelectTrigger className="w-full">
                           <SelectValue />
                         </SelectTrigger>
-                        <SelectContent className="bg-griote-white border border-griote-gold/20">
+                        <SelectContent className="bg-griote-white border border-griote-accent/20">
                           {niveauOptions.map(option => (
                             <SelectItem key={option.value} value={option.value}>
                               {option.label}
@@ -252,7 +252,7 @@ const Recherche = () => {
                         <SelectTrigger className="w-full">
                           <SelectValue />
                         </SelectTrigger>
-                        <SelectContent className="bg-griote-white border border-griote-gold/20">
+                        <SelectContent className="bg-griote-white border border-griote-accent/20">
                           {typeOptions.map(option => (
                             <SelectItem key={option.value} value={option.value}>
                               {option.label}
@@ -284,22 +284,22 @@ const Recherche = () => {
               {(searchQuery || thematique || niveau || type) && (
                 <div className="flex flex-wrap gap-2 mb-6">
                   {searchQuery && (
-                    <Badge variant="secondary" className="bg-griote-gold/20 text-griote-blue">
+                    <Badge variant="secondary" className="bg-griote-accent/20 text-griote-blue">
                       Recherche: "{searchQuery}"
                     </Badge>
                   )}
                   {thematique && (
-                    <Badge variant="secondary" className="bg-griote-gold/20 text-griote-blue">
+                    <Badge variant="secondary" className="bg-griote-accent/20 text-griote-blue">
                       {thematiqueOptions.find(opt => opt.value === thematique)?.label}
                     </Badge>
                   )}
                   {niveau && (
-                    <Badge variant="secondary" className="bg-griote-gold/20 text-griote-blue">
+                    <Badge variant="secondary" className="bg-griote-accent/20 text-griote-blue">
                       {niveauOptions.find(opt => opt.value === niveau)?.label}
                     </Badge>
                   )}
                   {type && (
-                    <Badge variant="secondary" className="bg-griote-gold/20 text-griote-blue">
+                    <Badge variant="secondary" className="bg-griote-accent/20 text-griote-blue">
                       Type: {type}
                     </Badge>
                   )}
@@ -308,7 +308,7 @@ const Recherche = () => {
 
               {/* Nombre de résultats */}
               <div className="mb-6">
-                <p className="griote-body text-griote-anthracite/70">
+                <p className="griote-body text-griote-gray-800/70">
                   {filteredProjects.length} projet{filteredProjects.length !== 1 ? 's' : ''} trouvé{filteredProjects.length !== 1 ? 's' : ''}
                 </p>
               </div>
@@ -332,13 +332,13 @@ const Recherche = () => {
                 </div>
               ) : (
                 <div className="text-center py-16">
-                  <div className="w-32 h-32 bg-griote-gold/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <Search className="w-16 h-16 text-griote-gold/50" />
+                  <div className="w-32 h-32 bg-griote-accent/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <Search className="w-16 h-16 text-griote-accent/50" />
                   </div>
-                  <h3 className="griote-subtitle text-griote-anthracite mb-4">
+                  <h3 className="griote-subtitle text-griote-gray-800 mb-4">
                     Aucun projet trouvé
                   </h3>
-                  <p className="griote-body text-griote-anthracite/70 mb-6">
+                  <p className="griote-body text-griote-gray-800/70 mb-6">
                     Essayez de modifier vos critères de recherche ou d'explorer d'autres thématiques.
                   </p>
                   <Button onClick={clearFilters} className="griote-button">

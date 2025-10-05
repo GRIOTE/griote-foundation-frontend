@@ -23,24 +23,24 @@ const APropos = () => {
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div className="animate-fade-in">
-                <h1 className="text-4xl md:text-5xl font-bold text-griote-gold mb-6">
+                <h1 className="text-4xl md:text-5xl font-bold text-griote-accent mb-6">
                   À propos de la Fondation Griote
                 </h1>
-                <p className="text-xl text-griote-gold/80 leading-relaxed">
+                <p className="text-xl text-griote-accent/80 leading-relaxed">
                   Inspirés par les griots, gardiens traditionnels de la mémoire africaine, 
                   nous créons des ponts entre les savoirs ancestraux et l'innovation contemporaine.
                 </p>
               </div>
               
               <div className="relative animate-fade-in">
-                <div className="bg-griote-gold/10 rounded-3xl p-8 backdrop-blur-sm border border-griote-gold/20">
-                  <div className="w-24 h-24 bg-griote-gold rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <div className="bg-griote-accent/10 rounded-3xl p-8 backdrop-blur-sm border border-griote-accent/20">
+                  <div className="w-24 h-24 bg-griote-accent rounded-2xl flex items-center justify-center mx-auto mb-6">
                     <span className="text-4xl">🌍</span>
                   </div>
-                  <h3 className="text-2xl font-semibold text-griote-gold text-center mb-4">
+                  <h3 className="text-2xl font-semibold text-griote-accent text-center mb-4">
                     Une Vision Panafricaine
                   </h3>
-                  <p className="text-griote-gold/80 text-center">
+                  <p className="text-griote-accent/80 text-center">
                     Connecter les talents académiques de tout le continent africain
                   </p>
                 </div>
@@ -55,26 +55,26 @@ const APropos = () => {
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
               <div className="lg:col-span-2">
                 <h2 className="text-3xl font-bold text-griote-blue mb-8 flex items-center">
-                  <Target className="w-8 h-8 mr-3 text-griote-gold" />
+                  <Target className="w-8 h-8 mr-3 text-griote-accent" />
                   Notre Mission
                 </h2>
                 
                 <div className="space-y-6">
-                  <p className="griote-body text-griote-anthracite leading-relaxed">
+                  <p className="griote-body text-griote-gray-800 leading-relaxed">
                     La Fondation Griote est née d'une vision simple mais ambitieuse : 
                     créer un écosystème numérique qui valorise et préserve les savoirs académiques africains. 
                     Comme les griots d'autrefois qui transmettaient oralement l'histoire et la sagesse, 
                     nous utilisons la technologie pour perpétuer cette noble tradition.
                   </p>
                   
-                  <p className="griote-body text-griote-anthracite leading-relaxed">
+                  <p className="griote-body text-griote-gray-800 leading-relaxed">
                     Notre plateforme permet aux étudiants, chercheurs et académiciens de partager leurs travaux, 
                     d'accéder aux recherches de leurs pairs et de postuler aux meilleures opportunités de bourses. 
                     Nous croyons que le savoir ne doit connaître aucune frontière et que chaque contribution 
                     académique mérite d'être reconnue et diffusée.
                   </p>
                   
-                  <div className="bg-griote-blue/5 p-6 rounded-xl border-l-4 border-griote-gold">
+                  <div className="bg-griote-blue/5 p-6 rounded-xl border-l-4 border-griote-accent">
                     <p className="griote-body text-griote-blue font-medium italic">
                       "Valoriser les savoirs africains pour illuminer l'avenir du continent 
                       et contribuer au progrès de l'humanité."
@@ -85,26 +85,26 @@ const APropos = () => {
 
               <div className="space-y-6">
                 <div className="griote-card p-6">
-                  <Globe className="w-12 h-12 text-griote-gold mb-4" />
+                  <Globe className="w-12 h-12 text-griote-accent mb-4" />
                   <h3 className="griote-subtitle font-semibold mb-3">Portée Panafricaine</h3>
-                  <p className="griote-secondary text-griote-anthracite/80">
+                  <p className="griote-secondary text-griote-gray-800/80">
                     Connectant plus de 54 pays africains dans un réseau académique unifié.
                   </p>
                 </div>
 
                 <div className="griote-card p-6">
-                  <Award className="w-12 h-12 text-griote-gold mb-4" />
+                  <Award className="w-12 h-12 text-griote-accent mb-4" />
                   <h3 className="griote-subtitle font-semibold mb-3">Bourses d'Excellence</h3>
-                  <p className="griote-secondary text-griote-anthracite/80">
+                  <p className="griote-secondary text-griote-gray-800/80">
                     Accès privilégié aux meilleures opportunités de financement académique.
                   </p>
                 </div>
 
                 <div className="griote-card p-6">
-                  <Heart className="w-12 h-12 text-griote-gold mb-4" />
-                  <h3 className="griote-subtitle font-semibold mb-3">Gratuit et Ouvert</h3>
-                  <p className="griote-secondary text-griote-anthracite/80">
-                    Plateforme entièrement gratuite pour démocratiser l'accès au savoir.
+                  <Heart className="w-12 h-12 text-griote-accent mb-4" />
+                  <h3 className="griote-subtitle font-semibold mb-3">Accès Ouvert</h3>
+                  <p className="griote-secondary text-griote-gray-800/80">
+                    Plateforme ouverte pour démocratiser l'accès au savoir africain.
                   </p>
                 </div>
               </div>
@@ -116,48 +116,48 @@ const APropos = () => {
         <section className="py-16 bg-griote-blue bg-kente">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-griote-gold mb-6 flex items-center justify-center">
+              <h2 className="text-3xl font-bold text-griote-accent mb-6 flex items-center justify-center">
                 <BookOpen className="w-8 h-8 mr-3" />
                 Notre Vision
               </h2>
-              <p className="text-xl text-griote-gold/80 max-w-3xl mx-auto">
+              <p className="text-xl text-griote-accent/80 max-w-3xl mx-auto">
                 Faire de l'Afrique un hub mondial d'innovation académique et scientifique
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="text-center animate-fade-in">
-                <div className="w-20 h-20 bg-griote-gold rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <div className="w-20 h-20 bg-griote-accent rounded-2xl flex items-center justify-center mx-auto mb-6">
                   <Users className="w-10 h-10 text-griote-blue" />
                 </div>
-                <h3 className="text-xl font-semibold text-griote-gold mb-4">
+                <h3 className="text-xl font-semibold text-griote-accent mb-4">
                   Communauté Unie
                 </h3>
-                <p className="text-griote-gold/80">
+                <p className="text-griote-accent/80">
                   Créer un réseau solidaire d'académiciens africains qui s'entraident et collaborent.
                 </p>
               </div>
 
               <div className="text-center animate-fade-in" style={{ animationDelay: '0.2s' }}>
-                <div className="w-20 h-20 bg-griote-gold rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <div className="w-20 h-20 bg-griote-accent rounded-2xl flex items-center justify-center mx-auto mb-6">
                   <BookOpen className="w-10 h-10 text-griote-blue" />
                 </div>
-                <h3 className="text-xl font-semibold text-griote-gold mb-4">
+                <h3 className="text-xl font-semibold text-griote-accent mb-4">
                   Savoir Accessible
                 </h3>
-                <p className="text-griote-gold/80">
+                <p className="text-griote-accent/80">
                   Rendre la connaissance académique africaine facilement accessible au monde entier.
                 </p>
               </div>
 
               <div className="text-center animate-fade-in" style={{ animationDelay: '0.4s' }}>
-                <div className="w-20 h-20 bg-griote-gold rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <div className="w-20 h-20 bg-griote-accent rounded-2xl flex items-center justify-center mx-auto mb-6">
                   <Target className="w-10 h-10 text-griote-blue" />
                 </div>
-                <h3 className="text-xl font-semibold text-griote-gold mb-4">
+                <h3 className="text-xl font-semibold text-griote-accent mb-4">
                   Excellence Reconnue
                 </h3>
-                <p className="text-griote-gold/80">
+                <p className="text-griote-accent/80">
                   Faire reconnaître l'excellence académique africaine sur la scène internationale.
                 </p>
               </div>
@@ -173,14 +173,14 @@ const APropos = () => {
                 L'Héritage des Griots
               </h2>
               
-              <div className="bg-gradient-to-r from-griote-blue/5 to-griote-gold/5 rounded-3xl p-8 md:p-12">
-                <p className="text-lg text-griote-anthracite leading-relaxed mb-6">
+              <div className="bg-gradient-to-r from-griote-blue/5 to-griote-accent/5 rounded-3xl p-8 md:p-12">
+                <p className="text-lg text-griote-gray-800 leading-relaxed mb-6">
                   Dans les traditions ouest-africaines, les griots étaient bien plus que des conteurs. 
                   Ils étaient les gardiens de la mémoire collective, les conseillers des rois, 
                   et les liens vivants entre les générations.
                 </p>
                 
-                <p className="text-lg text-griote-anthracite leading-relaxed mb-8">
+                <p className="text-lg text-griote-gray-800 leading-relaxed mb-8">
                   Aujourd'hui, nous perpétuons cet héritage en créant un espace numérique 
                   où les savoirs académiques africains peuvent être préservés, partagés et célébrés. 
                   Chaque recherche partagée sur notre plateforme devient une note dans la grande 
@@ -190,7 +190,7 @@ const APropos = () => {
                 <blockquote className="text-2xl font-light text-griote-blue italic mb-6">
                   "Quand un vieillard meurt, c'est une bibliothèque qui brûle."
                 </blockquote>
-                <cite className="text-griote-anthracite/70">— Amadou Hampâté Bâ</cite>
+                <cite className="text-griote-gray-800/70">— Amadou Hampâté Bâ</cite>
               </div>
             </div>
           </div>
@@ -200,10 +200,10 @@ const APropos = () => {
         <section className="py-16 bg-griote-blue bg-bogolan">
           <div className="container mx-auto px-4">
             <div className="text-center">
-              <h2 className="text-3xl font-bold text-griote-gold mb-6">
+              <h2 className="text-3xl font-bold text-griote-accent mb-6">
                 Rejoignez Notre Mission
               </h2>
-              <p className="text-xl text-griote-gold/80 mb-8 max-w-2xl mx-auto">
+              <p className="text-xl text-griote-accent/80 mb-8 max-w-2xl mx-auto">
                 Participez à la construction du plus grand réseau académique africain
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">

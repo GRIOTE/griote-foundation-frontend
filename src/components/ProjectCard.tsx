@@ -16,63 +16,69 @@ interface ProjectCardProps {
   showActions?: boolean;
 }
 
-const ProjectCard = ({ 
-  title, 
-  author, 
+const ProjectCard = ({
+  title,
+  author,
   userType,
   category,
-  date, 
-  tags, 
-  isPublic, 
+  date,
+  tags,
+  isPublic,
   description,
   onView,
   onDownload,
-  showActions = true
+  showActions = true,
 }: ProjectCardProps) => {
   return (
-    <div className="p-6 rounded-2xl bg-[#FFFFFF] transition-all duration-300 transform hover:bg-[#F2B600] hover:text-[#003399] cursor-pointer shadow-sm hover:shadow-xl animate-fade-in">
-      
+    <div className="p-6 rounded-2xl bg-griote-white transition-all duration-300 transform hover:bg-griote-gray-50 cursor-pointer shadow-md hover:shadow-xl relative overflow-hidden border border-griote-gray-100">
       {/* Header */}
       <div className="flex items-start justify-between mb-4">
         <div className="flex-1">
-          <h3 className="text-lg font-semibold mb-1 line-clamp-2">{title}</h3>
-          <div className="flex items-center space-x-2 text-[#6B7280] mb-1">
-            <User className="w-4 h-4" />
+          <h3 className="text-lg sm:text-xl font-semibold mb-1 line-clamp-2 text-griote-gray-800">{title}</h3>
+          <div className="flex items-center space-x-2 text-griote-gray-600 mb-1">
+            <User className="w-4 h-4 text-griote-accent" />
             <span>{author} ({userType})</span>
           </div>
-          <Badge className="text-xs bg-[#003399] text-[#FFFFFF] px-2 py-1 rounded">{category}</Badge>
+          <Badge className="text-xs bg-griote-accent text-white px-2 py-1 rounded font-medium">
+            {category}
+          </Badge>
         </div>
         <div className="ml-4">
           {isPublic ? (
-            <BookOpen className="w-6 h-6 text-[#003399]" />
+            <BookOpen className="w-6 h-6 text-griote-success" />
           ) : (
-            <Lock className="w-6 h-6 text-[#6B7280]" />
+            <Lock className="w-6 h-6 text-griote-gray-600" />
           )}
         </div>
       </div>
 
       {/* Description */}
       {description && (
-        <p className="text-sm text-[#6B7280] mb-4 line-clamp-3">{description}</p>
+        <p className="text-sm text-griote-gray-600 mb-4 line-clamp-3">{description}</p>
       )}
 
       {/* Tags */}
       <div className="flex flex-wrap gap-2 mb-4">
-        {tags.slice(0,3).map((tag, index) => (
-          <Badge key={index} className="bg-[#003399]/10 text-[#003399] px-2 py-1 rounded flex items-center text-xs hover:bg-[#F2B600] hover:text-[#003399] transition-colors duration-200">
+        {tags.slice(0, 3).map((tag, index) => (
+          <Badge
+            key={index}
+            className="bg-griote-blue-light text-griote-blue px-2 py-1 rounded flex items-center text-xs hover:bg-griote-accent hover:text-white transition-colors duration-200"
+          >
             <Tag className="w-3 h-3 mr-1" />
             {tag}
           </Badge>
         ))}
         {tags.length > 3 && (
-          <Badge className="text-[#6B7280] text-xs">+{tags.length - 3}</Badge>
+          <Badge className="text-griote-gray-600 text-xs bg-griote-gray-100 px-2 py-1 rounded">
+            +{tags.length - 3}
+          </Badge>
         )}
       </div>
 
       {/* Footer */}
-      <div className="flex items-center justify-between pt-4 border-t border-[#F5F7FA]">
-        <div className="flex items-center space-x-2 text-[#6B7280]">
-          <Calendar className="w-4 h-4" />
+      <div className="flex items-center justify-between pt-4 border-t border-griote-gray-100">
+        <div className="flex items-center space-x-2 text-griote-gray-600">
+          <Calendar className="w-4 h-4 text-griote-accent" />
           <span>{date}</span>
         </div>
 
@@ -83,7 +89,7 @@ const ProjectCard = ({
                 onClick={onView}
                 size="sm"
                 variant="outline"
-                className="px-3 py-2 text-xs border-[#003399] text-[#003399] hover:bg-[#003399] hover:text-[#F2B600]"
+                className="px-3 py-1 text-xs border-griote-blue text-griote-blue hover:bg-griote-blue hover:text-white rounded-lg"
               >
                 Voir plus
               </Button>
@@ -92,7 +98,7 @@ const ProjectCard = ({
               <Button
                 onClick={onDownload}
                 size="sm"
-                className="px-3 py-2 text-xs bg-[#003399] text-[#FFFFFF] hover:bg-[#F2B600] hover:text-[#003399]"
+                className="px-3 py-1 text-xs bg-griote-accent text-white hover:bg-orange-600 rounded-lg"
               >
                 Télécharger
               </Button>
@@ -100,7 +106,6 @@ const ProjectCard = ({
           </div>
         )}
       </div>
-
     </div>
   );
 };

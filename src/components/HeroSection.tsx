@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Search, Upload, BookOpen, Users } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
+import grioteImage from '@/assets/griote.jpg';
 
 interface HeroSectionProps {
   isAuthenticated?: boolean;
@@ -11,41 +12,46 @@ const HeroSection = ({ isAuthenticated = false }: HeroSectionProps) => {
   const [fadeIn, setFadeIn] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => setFadeIn(true), 100); // léger delay pour déclencher
+    const timer = setTimeout(() => setFadeIn(true), 100);
     return () => clearTimeout(timer);
   }, []);
 
   return (
-    <section className="bg-[#FFFFFF] py-16 md:py-24">
-      <div className="container mx-auto px-4">
+    <section
+      className="relative w-full min-h-[600px] flex items-center bg-cover bg-center"
+      style={{
+        backgroundImage: 'linear-gradient(135deg, rgba(59, 130, 246, 0.9) 0%, rgba(30, 58, 138, 0.95) 100%)',
+      }} 
+    >
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Contenu textuel */}
           <div
-            className={`text-center lg:text-left transition-all duration-700 ease-out transform ${
-              fadeIn ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+            className={`text-center lg:text-left transition-all duration-1000 ease-out transform ${
+              fadeIn ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             }`}
           >
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-[#003399] mb-6 leading-tight">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-griote-white mb-6 leading-tight">
               Partagez vos savoirs,<br />
-              <span className="text-[#111827]">illuminez l'Afrique</span>
+              <span className="text-griote-accent">illuminez l'Afrique</span>
             </h1>
-            
-            <p className="text-lg md:text-xl text-[#6B7280] mb-8 leading-relaxed">
-              Plateforme panafricaine dédiée à la valorisation des travaux académiques 
-              et à l'accès aux bourses d'études.
+
+            <p className="text-lg sm:text-xl text-griote-white/90 mb-8 leading-relaxed max-w-2xl">
+              Plateforme panafricaine dédiée à la valorisation des travaux académiques, 
+              au développement de l'intelligence artificielle africaine et à l'accès aux opportunités d'études.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <Link to="/recherche">
-                <Button className="px-8 py-4 w-full sm:w-auto bg-[#003399] text-[#FFFFFF] rounded-md font-semibold hover:bg-[#F2B600] hover:text-[#003399] transition-colors duration-200">
+                <Button className="px-8 py-4 w-full sm:w-auto bg-griote-accent text-griote-blue rounded-lg font-semibold hover:bg-yellow-400 transition-colors duration-300">
                   Explorer les projets
                 </Button>
               </Link>
-              
-              <Link to={isAuthenticated ? "/depot" : "/connexion"}>
-                <Button 
-                  variant="outline" 
-                  className="px-8 py-4 w-full sm:w-auto border-2 border-[#003399] text-[#003399] rounded-md font-semibold hover:bg-[#003399] hover:text-[#FFFFFF] transition-colors duration-200"
+
+              <Link to={isAuthenticated ? '/depot' : '/connexion'}>
+                <Button
+                  variant="outline"
+                  className="px-8 py-4 w-full sm:w-auto border-2 border-griote-accent text-griote-accent rounded-lg font-semibold hover:bg-griote-accent hover:text-griote-blue transition-colors duration-300"
                 >
                   Déposer un projet
                 </Button>
@@ -53,53 +59,63 @@ const HeroSection = ({ isAuthenticated = false }: HeroSectionProps) => {
             </div>
 
             {/* Statistiques */}
-            <div className="grid grid-cols-3 gap-6 mt-12 pt-8 border-t border-[#F5F7FA]">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-12 pt-8 border-t border-griote-white/20">
               <div className="text-center">
-                <div className="text-2xl md:text-3xl font-bold text-[#003399] mb-1">1000+</div>
-                <div className="text-sm text-[#6B7280]">Projets partagés</div>
+                <div className="text-2xl sm:text-3xl font-bold text-griote-accent mb-1">1000+</div>
+                <div className="text-sm text-griote-white/80">Projets partagés</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl md:text-3xl font-bold text-[#003399] mb-1">500+</div>
-                <div className="text-sm text-[#6B7280]">Étudiants connectés</div>
+                <div className="text-2xl sm:text-3xl font-bold text-griote-accent mb-1">500+</div>
+                <div className="text-sm text-griote-white/80">Étudiants connectés</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl md:text-3xl font-bold text-[#003399] mb-1">50+</div>
-                <div className="text-sm text-[#6B7280]">Bourses disponibles</div>
+                <div className="text-2xl sm:text-3xl font-bold text-griote-accent mb-1">50+</div>
+                <div className="text-sm text-griote-white/80">Opportunités disponibles</div>
               </div>
             </div>
           </div>
 
-          {/* Illustrations / Cards */}
-          <div
-            className={`grid grid-cols-1 gap-6 lg:grid-cols-2 transition-all duration-700 ease-out transform ${
-              fadeIn ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
-            }`}
-          >
-            <div className="bg-[#F5F7FA] rounded-2xl p-6 hover:scale-105 transform transition-transform duration-300">
-              <BookOpen className="w-12 h-12 text-[#003399] mb-4" />
-              <h3 className="font-semibold text-[#111827] mb-2">Projets Académiques</h3>
-              <p className="text-sm text-[#6B7280]">
-                Partagez vos recherches et découvrez celles des autres
-              </p>
-            </div>
-            
-            <div className="bg-[#F5F7FA] rounded-2xl p-6 hover:scale-105 transform transition-transform duration-300">
-              <Users className="w-12 h-12 text-[#003399] mb-4" />
-              <h3 className="font-semibold text-[#111827] mb-2">Communauté</h3>
-              <p className="text-sm text-[#6B7280]">
-                Connectez-vous avec des étudiants de toute l'Afrique
-              </p>
-            </div>
-
-            <div className="bg-[#F5F7FA] rounded-2xl p-6 lg:col-span-2 hover:scale-105 transform transition-transform duration-300">
-              <h3 className="font-semibold text-[#111827] mb-1">Bourses d'Excellence</h3>
-              <p className="text-sm text-[#6B7280]">
-                Accédez aux meilleures opportunités de financement pour vos études
-              </p>
+          {/* Image africaine authentique */}
+          <div className="hidden lg:block relative">
+            <div
+              className={`transition-all duration-1000 ease-out transform ${
+                fadeIn ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+              }`}
+            >
+              <div className="relative w-full max-w-md mx-auto">
+                <img
+                  src={grioteImage}
+                  alt="Sage africain - Gardien de la tradition orale"
+                  className="w-full h-auto rounded-2xl shadow-2xl border-4 border-griote-accent/20"
+                  style={{
+                    filter: 'sepia(10%) saturate(120%) brightness(105%) contrast(110%)'
+                  }}
+                />
+                {/* Overlay décoratif avec motifs africains */}
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-griote-blue/20 via-transparent to-griote-accent/10"></div>
+                
+                {/* Symboles Adinkra décoratifs */}
+                <div className="absolute -top-4 -right-4 w-12 h-12 bg-griote-accent rounded-full flex items-center justify-center shadow-lg">
+                  <span className="text-griote-blue font-bold text-lg">★</span>
+                </div>
+                <div className="absolute -bottom-4 -left-4 w-10 h-10 bg-griote-blue rounded-full flex items-center justify-center shadow-lg">
+                  <span className="text-griote-accent font-bold">◆</span>
+                </div>
+                
+                {/* Citation inspirante */}
+                <div className="absolute -bottom-16 left-1/2 transform -translate-x-1/2 text-center whitespace-nowrap">
+                  <p className="text-griote-accent text-xs font-medium italic opacity-90">
+                    "La parole est sacrée, elle crée et transforme", Sagesse africaine
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
+
+      {/* Motif décoratif africain (optionnel, pour renforcer l'esthétique) */}
+      <div className="absolute bottom-0 left-0 w-full h-16 bg-[url('https://example.com/african-border-pattern.png')] bg-repeat-x opacity-50"></div>
     </section>
   );
 };

@@ -20,12 +20,20 @@ export default {
 		},
 		extend: {
 			colors: {
-				// Palette Griote
+				// Palette Griote - Balanced and eye-friendly
 				griote: {
-					'blue': '#142393',
-					'gold': '#FFDE59',
-					'anthracite': '#2E2E2E',
-					'white': '#FFFFFF'
+					'blue': '#3B82F6', // Softer, less aggressive blue
+					'blue-light': '#DBEAFE', // Very light blue for subtle accents
+					'blue-dark': '#1E3A8A', // Darker blue for important elements only
+					'accent': '#FFDE59', // Gold/yellow accent color
+					'accent-light': '#FEF3C7', // Light gold for subtle highlights
+					'white': '#FFFFFF', // Primary background color
+					'gray-50': '#F9FAFB', // Very light gray for sections
+					'gray-100': '#F3F4F6', // Light gray for cards
+					'gray-600': '#4B5563', // Medium gray for text
+					'gray-800': '#1F2937', // Dark gray for headings
+					'success': '#10B981', // Green for success states
+					'warning': '#F59E0B' // Amber for warnings
 				},
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',

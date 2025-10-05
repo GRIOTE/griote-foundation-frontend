@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { BookOpen, Eye, EyeOff, Mail, Lock } from 'lucide-react';
+import { Eye, EyeOff, Mail, Lock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import grioteLogo from '@/assets/griote.svg';
 
 const Connexion = () => {
   const [email, setEmail] = useState('');
@@ -27,13 +28,13 @@ const Connexion = () => {
   };
 
   return (
-    <div className="min-h-screen bg-griote-blue bg-bogolan-pattern flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-griote-blue to-griote-blue-dark flex items-center justify-center p-4">
       <div className="w-full max-w-md">
         {/* Logo et titre */}
         <div className="text-center mb-8">
           <Link to="/" className="inline-flex items-center space-x-3 griote-hover">
-            <div className="w-12 h-12 bg-griote-gold rounded-lg flex items-center justify-center">
-              <BookOpen className="w-8 h-8 text-griote-blue" />
+            <div className="w-12 h-12 bg-griote-white rounded-lg flex items-center justify-center p-2">
+              <img src={grioteLogo} alt="Logo Griote" className="w-full h-full" />
             </div>
             <span className="text-2xl font-bold text-griote-white">
               Fondation Griote
@@ -45,12 +46,12 @@ const Connexion = () => {
         </div>
 
         {/* Formulaire de connexion */}
-        <Card className="bg-griote-white border-griote-gold/20 shadow-2xl">
+        <Card className="bg-griote-white border-griote-accent/20 shadow-2xl">
           <CardHeader className="space-y-1">
             <CardTitle className="text-2xl text-center text-griote-blue">
               Connexion
             </CardTitle>
-            <CardDescription className="text-center text-griote-anthracite">
+            <CardDescription className="text-center text-griote-gray-800">
               Entrez vos identifiants pour accéder à votre compte
             </CardDescription>
           </CardHeader>
@@ -69,7 +70,7 @@ const Connexion = () => {
                     placeholder="votre@email.com"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="pl-12 border-griote-blue/20 focus:border-griote-gold focus:ring-griote-gold"
+                    className="pl-12 border-griote-blue/20 focus:border-griote-accent focus:ring-griote-accent"
                     required
                   />
                 </div>
@@ -87,7 +88,7 @@ const Connexion = () => {
                     placeholder="Votre mot de passe"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="pl-12 pr-12 border-griote-blue/20 focus:border-griote-gold focus:ring-griote-gold"
+                    className="pl-12 pr-12 border-griote-blue/20 focus:border-griote-accent focus:ring-griote-accent"
                     required
                   />
                   <button
@@ -105,15 +106,15 @@ const Connexion = () => {
                   <input
                     type="checkbox"
                     id="remember"
-                    className="w-4 h-4 text-griote-gold border-griote-blue/20 rounded focus:ring-griote-gold"
+                    className="w-4 h-4 text-griote-accent border-griote-blue/20 rounded focus:ring-griote-accent"
                   />
-                  <Label htmlFor="remember" className="text-sm text-griote-anthracite">
+                  <Label htmlFor="remember" className="text-sm text-griote-gray-800">
                     Se souvenir de moi
                   </Label>
                 </div>
                 <Link
                   to="/mot-de-passe-oublie"
-                  className="text-sm text-griote-gold hover:text-griote-blue transition-colors"
+                  className="text-sm text-griote-accent hover:text-griote-blue transition-colors"
                 >
                   Mot de passe oublié ?
                 </Link>
@@ -136,11 +137,11 @@ const Connexion = () => {
                 )}
               </Button>
 
-              <div className="text-center text-sm text-griote-anthracite">
+              <div className="text-center text-sm text-griote-gray-800">
                 Vous n'avez pas de compte ?{' '}
                 <Link
                   to="/inscription"
-                  className="text-griote-gold hover:text-griote-blue font-medium transition-colors"
+                  className="text-griote-accent hover:text-griote-blue font-medium transition-colors"
                 >
                   Créer un compte
                 </Link>
@@ -153,7 +154,7 @@ const Connexion = () => {
         <div className="text-center mt-6">
           <Link
             to="/"
-            className="text-griote-white/80 hover:text-griote-gold transition-colors text-sm"
+            className="text-griote-white/80 hover:text-griote-accent transition-colors text-sm"
           >
             ← Retour à l'accueil
           </Link>

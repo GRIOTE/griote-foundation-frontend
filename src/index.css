@@ -102,7 +102,7 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-griote-blue text-griote-white font-ubuntu;
+    @apply bg-griote-white text-griote-gray-800 font-ubuntu;
   }
 
   /* Motifs bogolan et kente en arrière-plan */
@@ -126,25 +126,26 @@ All colors MUST be HSL.
   .griote-body {
     @apply text-griote-body text-griote-white;
   }
-
   .griote-secondary {
     @apply text-griote-secondary text-griote-white/80;
   }
 
-  .griote-card {
-    @apply bg-griote-white rounded-lg shadow-lg border border-griote-blue/20 bg-kente;
-  }
-
+  /* Boutons */
   .griote-button {
-    @apply bg-griote-blue text-griote-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:bg-griote-gold hover:text-griote-blue border-2 border-griote-blue;
+    @apply bg-griote-accent text-griote-blue hover:bg-yellow-400 px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105;
   }
 
-.griote-button-outline {
-  @apply bg-transparent text-[#142393] px-6 py-3 rounded-lg font-semibold border-2 border-[#142393] transition-all duration-300 hover:bg-[#142393] hover:text-[#FFDE59];
-}
+  .griote-button-outline {
+    @apply border-2 border-griote-accent text-griote-accent hover:bg-griote-accent hover:text-griote-blue px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105;
+  }
 
-  /* Effets de survol */
+  /* Cartes */
+  .griote-card {
+    @apply bg-griote-white rounded-2xl shadow-lg border border-griote-gray-100 hover:shadow-xl transition-all duration-300;
+  }
+
+  /* Hover effects */
   .griote-hover {
-    @apply transition-all duration-300 hover:transform hover:scale-105;
+    @apply transition-all duration-300 transform hover:scale-105;
   }
 }

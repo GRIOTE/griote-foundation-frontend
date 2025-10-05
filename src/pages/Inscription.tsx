@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { BookOpen, Eye, EyeOff, Mail, Lock, User, Phone, MapPin } from 'lucide-react';
+import { Eye, EyeOff, Mail, Lock, User, Phone, MapPin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import grioteLogo from '@/assets/griote.svg';
 
 const Inscription = () => {
   const [formData, setFormData] = useState({
@@ -59,13 +60,13 @@ const Inscription = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-griote-blue bg-kente-pattern flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-griote-blue to-griote-blue-dark flex items-center justify-center p-4">
       <div className="w-full max-w-2xl">
         {/* Logo et titre */}
         <div className="text-center mb-8">
           <Link to="/" className="inline-flex items-center space-x-3 griote-hover">
-            <div className="w-12 h-12 bg-griote-gold rounded-lg flex items-center justify-center">
-              <BookOpen className="w-8 h-8 text-griote-blue" />
+            <div className="w-12 h-12 bg-griote-white rounded-lg flex items-center justify-center p-2">
+              <img src={grioteLogo} alt="Logo Griote" className="w-full h-full" />
             </div>
             <span className="text-2xl font-bold text-griote-white">
               Fondation Griote
@@ -77,12 +78,12 @@ const Inscription = () => {
         </div>
 
         {/* Formulaire d'inscription */}
-        <Card className="bg-griote-white border-griote-gold/20 shadow-2xl">
+        <Card className="bg-griote-white border-griote-accent/20 shadow-2xl">
           <CardHeader className="space-y-1">
             <CardTitle className="text-2xl text-center text-griote-blue">
               Créer un compte
             </CardTitle>
-            <CardDescription className="text-center text-griote-anthracite">
+            <CardDescription className="text-center text-griote-gray-800">
               Remplissez les informations ci-dessous pour créer votre compte
             </CardDescription>
           </CardHeader>
@@ -103,7 +104,7 @@ const Inscription = () => {
                       placeholder="Votre prénom"
                       value={formData.firstName}
                       onChange={(e) => handleInputChange('firstName', e.target.value)}
-                      className="pl-12 border-griote-blue/20 focus:border-griote-gold focus:ring-griote-gold"
+                      className="pl-12 border-griote-blue/20 focus:border-griote-accent focus:ring-griote-accent"
                       required
                     />
                   </div>
@@ -121,7 +122,7 @@ const Inscription = () => {
                       placeholder="Votre nom"
                       value={formData.lastName}
                       onChange={(e) => handleInputChange('lastName', e.target.value)}
-                      className="pl-12 border-griote-blue/20 focus:border-griote-gold focus:ring-griote-gold"
+                      className="pl-12 border-griote-blue/20 focus:border-griote-accent focus:ring-griote-accent"
                       required
                     />
                   </div>
@@ -141,7 +142,7 @@ const Inscription = () => {
                     placeholder="votre@email.com"
                     value={formData.email}
                     onChange={(e) => handleInputChange('email', e.target.value)}
-                    className="pl-12 border-griote-blue/20 focus:border-griote-gold focus:ring-griote-gold"
+                    className="pl-12 border-griote-blue/20 focus:border-griote-accent focus:ring-griote-accent"
                     required
                   />
                 </div>
@@ -161,7 +162,7 @@ const Inscription = () => {
                       placeholder="+221 XX XXX XX XX"
                       value={formData.phone}
                       onChange={(e) => handleInputChange('phone', e.target.value)}
-                      className="pl-12 border-griote-blue/20 focus:border-griote-gold focus:ring-griote-gold"
+                      className="pl-12 border-griote-blue/20 focus:border-griote-accent focus:ring-griote-accent"
                     />
                   </div>
                 </div>
@@ -173,7 +174,7 @@ const Inscription = () => {
                   <div className="relative">
                     <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-griote-blue/60 z-10" />
                     <Select value={formData.country} onValueChange={(value) => handleInputChange('country', value)}>
-                      <SelectTrigger className="pl-12 border-griote-blue/20 focus:border-griote-gold focus:ring-griote-gold">
+                      <SelectTrigger className="pl-12 border-griote-blue/20 focus:border-griote-accent focus:ring-griote-accent">
                         <SelectValue placeholder="Sélectionnez votre pays" />
                       </SelectTrigger>
                       <SelectContent>
@@ -202,7 +203,7 @@ const Inscription = () => {
                       placeholder="Votre mot de passe"
                       value={formData.password}
                       onChange={(e) => handleInputChange('password', e.target.value)}
-                      className="pl-12 pr-12 border-griote-blue/20 focus:border-griote-gold focus:ring-griote-gold"
+                      className="pl-12 pr-12 border-griote-blue/20 focus:border-griote-accent focus:ring-griote-accent"
                       required
                     />
                     <button
@@ -227,7 +228,7 @@ const Inscription = () => {
                       placeholder="Confirmez votre mot de passe"
                       value={formData.confirmPassword}
                       onChange={(e) => handleInputChange('confirmPassword', e.target.value)}
-                      className="pl-12 pr-12 border-griote-blue/20 focus:border-griote-gold focus:ring-griote-gold"
+                      className="pl-12 pr-12 border-griote-blue/20 focus:border-griote-accent focus:ring-griote-accent"
                       required
                     />
                     <button
@@ -248,16 +249,16 @@ const Inscription = () => {
                   id="acceptTerms"
                   checked={formData.acceptTerms}
                   onChange={(e) => handleInputChange('acceptTerms', e.target.checked)}
-                  className="w-4 h-4 mt-1 text-griote-gold border-griote-blue/20 rounded focus:ring-griote-gold"
+                  className="w-4 h-4 mt-1 text-griote-accent border-griote-blue/20 rounded focus:ring-griote-accent"
                   required
                 />
-                <Label htmlFor="acceptTerms" className="text-sm text-griote-anthracite leading-relaxed">
+                <Label htmlFor="acceptTerms" className="text-sm text-griote-gray-800 leading-relaxed">
                   J'accepte les{' '}
-                  <Link to="/conditions" className="text-griote-gold hover:text-griote-blue transition-colors">
+                  <Link to="/conditions" className="text-griote-accent hover:text-griote-blue transition-colors">
                     conditions d'utilisation
                   </Link>{' '}
                   et la{' '}
-                  <Link to="/confidentialite" className="text-griote-gold hover:text-griote-blue transition-colors">
+                  <Link to="/confidentialite" className="text-griote-accent hover:text-griote-blue transition-colors">
                     politique de confidentialité
                   </Link>
                 </Label>
@@ -280,11 +281,11 @@ const Inscription = () => {
                 )}
               </Button>
 
-              <div className="text-center text-sm text-griote-anthracite">
+              <div className="text-center text-sm text-griote-gray-800">
                 Vous avez déjà un compte ?{' '}
                 <Link
                   to="/connexion"
-                  className="text-griote-gold hover:text-griote-blue font-medium transition-colors"
+                  className="text-griote-accent hover:text-griote-blue font-medium transition-colors"
                 >
                   Se connecter
                 </Link>
@@ -297,7 +298,7 @@ const Inscription = () => {
         <div className="text-center mt-6">
           <Link
             to="/"
-            className="text-griote-white/80 hover:text-griote-gold transition-colors text-sm"
+            className="text-griote-white/80 hover:text-griote-accent transition-colors text-sm"
           >
             ← Retour à l'accueil
           </Link>
